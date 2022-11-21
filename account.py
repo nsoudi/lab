@@ -6,7 +6,7 @@ class Account:
 
     """
 
-    def __init__(self, name) -> None:
+    def __init__(self, name: str) -> None:
         """
         Constructor to create the initial state of a class object
         :param name: Name of the account
@@ -14,7 +14,7 @@ class Account:
         self.__account_name = name
         self.__account_balance = 0
 
-    def deposit(self, amount) -> float:
+    def deposit(self, amount: float) -> bool:
         """
         Method to deposit and increment an account's balance
         :param amount: Amount being deposited into an accounts balance
@@ -27,7 +27,7 @@ class Account:
             self.__account_balance += amount
             return True
 
-    def withdraw(self, amount) -> float:
+    def withdraw(self, amount: float) -> bool:
         """
         Method to withdraw and decrement an account's balance
         :param amount: Amount being withdrawn from an accounts balance

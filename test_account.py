@@ -34,14 +34,14 @@ class Test:
 
 
         self.ac1.deposit(2.5)
-        assert self.ac1.getbalance() == 9.5
+        assert self.ac1.getbalance() == pytest.approx(9.5, abs=0.001)
         self.ac1.deposit(-2.5)
-        assert self.ac1.getbalance() == 9.5
+        assert self.ac1.getbalance() == pytest.approx(9.5, abs=0.001)
         self.ac1.deposit(0.0)
-        assert self.ac1.getbalance() == 9.5
+        assert self.ac1.getbalance() == pytest.approx(9.5, abs=0.001)
 
         self.ac1.deposit(-5.0)
-        assert self.ac1.getbalance() != 4.5
+        assert self.ac1.getbalance() != pytest.approx(4.5, abs=0.001)
 
     def test_withdraw(self):
         self.ac1.deposit(15)
@@ -54,17 +54,17 @@ class Test:
         assert self.ac1.getbalance() == 13
 
         self.ac1.withdraw(-5)
-        assert self.ac1.getbalance() != 8.0
+        assert self.ac1.getbalance() != pytest.approx(8.0)
 
         self.ac1.withdraw(2.0)
-        assert self.ac1.getbalance() == 11.0
+        assert self.ac1.getbalance() == pytest.approx(11.0)
         self.ac1.withdraw(-500)
-        assert self.ac1.getbalance() == 11.0
+        assert self.ac1.getbalance() == pytest.approx(11.0)
         self.ac1.withdraw(0)
-        assert self.ac1.getbalance() == 11.0
+        assert self.ac1.getbalance() == pytest.approxx(11.0)
 
         self.ac1.withdraw(-5.0)
-        assert self.ac1.getbalance() != 6.0
+        assert self.ac1.getbalance() != pytest.approx(6.0)
 
 
 
